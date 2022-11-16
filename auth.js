@@ -1,12 +1,14 @@
-// TE DEFINĒT USER OBJEKTU
 import { reactive } from 'vue';
+// TE DEFINĒT USER OBJEKTU
+let user = {
+    name: "Mārtiņš",
+    surname: "Krēsliņš",
+    code: "IT20045",
+    favorite_songs: []
+}
+
 export const auth = reactive({
-    user: {
-        name: "Mārtiņš",
-        surname: "Krēsliņš",
-        code: "IT20045",
-        favorite_songs: []
-    },
+    
     is_authenticated: localStorage.is_authenticated ?? false,
 
     setUserData(name, surname, code) {
@@ -42,5 +44,5 @@ export const auth = reactive({
 
     getFavoriteSongs() {
         return this.user.favorite_songs;
-    },
+    }
 });

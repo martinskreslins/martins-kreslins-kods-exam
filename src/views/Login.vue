@@ -1,9 +1,9 @@
 <script>
-import auth from '/auth';
+import {auth} from '/auth.js';
 export default {
   data() {
     return {
-      auth, //this is not importing. i cant access the function authenticate()
+      auth, //this is not importing. i cant access the function authenticaate()
       eml: "",
       pwd: ""
     }
@@ -24,7 +24,8 @@ export default {
         </div>
         <input id="input-email" placeholder="E-mail" v-model="eml" />
         <input id="input-password" type="password" placeholder="Password" v-model="pwd" />
-        <button id="btn-submit" type="submit" @click="auth.authenticate(eml, pwd)" :disabled="canEnable(eml, pwd) == 0">LOGIN</button>
+        <button id="btn-submit" @click="auth.authenticate(eml, pwd)" type="submit" :disabled="canEnable(eml, pwd) == 0">LOGIN</button>
+        
     </form>
 </div>
 </template>
