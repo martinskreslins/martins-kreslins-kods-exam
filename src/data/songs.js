@@ -1,3 +1,23 @@
+/*
+structure of element-
+    album:  artists: array of these-
+                        id: string
+                        name:string
+            id: string
+            images: array of these-
+                        height: int
+                        url: string
+                        width: int
+            name: string
+            release_date: string 
+    artists: array of these-
+            id: string
+            name: string
+    duration_ms: int
+    id: string
+    name: string
+    preview_url: string
+*/
 export default [
     {
         "album": {
