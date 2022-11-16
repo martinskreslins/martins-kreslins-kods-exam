@@ -30,7 +30,7 @@ export const player = reactive({
         return this.now_playing?.preview_url;
     },
     getNextSong(){
-        songCount = 0;
+        let songCount = 0;
         for(album in this.playlist){
             if (this.getNowPlayingAlbumID() == album.id) {
                 break;
@@ -47,7 +47,7 @@ export const player = reactive({
         }
     },
     getPreviousSong() {
-        songCount = 0;
+        let songCount = 0;
         for(album in this.playlist){
             if (this.getNowPlayingAlbumID() == album.id) {
                 break;
@@ -67,3 +67,4 @@ export const player = reactive({
         this.now_playing = {};
     }
 })
+export default player;

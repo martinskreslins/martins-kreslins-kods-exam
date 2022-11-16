@@ -1,15 +1,21 @@
+<script>
+import auth from './auth';
+export default {
+  data() {
+    return {
+      auth
+    }
+  }
+}
+</script>
 <template>
-    <div v-if="localStorage"><Header></Header></div>
+<Header v-if="auth.is_authenticated == true"></Header>
     
     <div id="section-body">
-        <div v-if="localStorage">
-            <NavigationComponent></NavigationComponent>
-        </div>
+           <Navigation v-if="auth.is_authenticated == true" />
         <router-view class="section-router"></router-view>
     </div>
-    <div v-if="localStorage">
         <div id="section-player">
-            <AudioPlayer />
+            <AudioPlayer v-if="auth.is_authenticated == true" />
         </div>
-    </div>
 </template>

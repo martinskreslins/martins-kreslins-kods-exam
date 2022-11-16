@@ -1,16 +1,16 @@
 import { reactive } from 'vue';
+import router from './router';
 // TE DEFINĒT USER OBJEKTU
-let user = {
-    name: "Mārtiņš",
-    surname: "Krēsliņš",
-    code: "IT20045",
-    favorite_songs: []
-}
 
-export const auth = reactive({
+const auth = reactive({
+    user: {
+        name: "Mārtiņš",
+        surname: "Krēsliņš",
+        code: "IT20045",
+        favorite_songs: []
+    },
     
     is_authenticated: localStorage.is_authenticated ?? false,
-
     setUserData(name, surname, code) {
         name = user.name;
         surname = user.surname;
@@ -18,10 +18,11 @@ export const auth = reactive({
     },
 
     authenticate(email, password) {
+        
         if (email == "martins.kreslins@va.lv" && password == "123456") {
             this.is_authenticated = true;
             localStorage.is_authenticated == true;
-            router.push({path: "/"});
+            router.push({path: '/'});
 
         } else {
             return false;
@@ -46,3 +47,4 @@ export const auth = reactive({
         return this.user.favorite_songs;
     }
 });
+export default auth;
